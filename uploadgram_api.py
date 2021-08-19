@@ -3,29 +3,23 @@
 ~~~~uploadgram_api.py~~~~
 ~~~~~~~~~~~~~~~~~~~~~
 
-Minimal Python version: 3.9
-
 Author: tankalxat34
 
 Description: 
-    This library work with files in Uploadgram server (uploadgram.me).
-    Uploadgram_api can download, create and delete files.
-    This API created by tankalxat34.
+    This API can be upload, download, remove and rename any files from the service uploadgram.me. Using programming language: Python.
 
 Contacts (API Author):
     - telegram: @tankalxat34
     - telegram channel: https://t.me/tankalxat34_channel
+    - github: https://github.com/tankalxat34/UploadgramPyAPI
 
 Contacts (Uploadgram Author):
     - telegrams channel: https://t.me/uploadgramme
 
 """
 
-import requests, getpass, os, os.path, fake_useragent
-import json
+import requests, getpass, os, os.path, fake_useragent, json
 
-__VERSION__ = "1.0"
-__AUTHOR__ = "tankalxat34"
 global USER_AGENT
 USER_AGENT = fake_useragent.UserAgent().chrome
 
@@ -47,7 +41,7 @@ class UploadgramFile:
 
         self.r = requests.get(self.url + self.id)
         if self.r:
-            self.file = self.r.json() | {"id": self.id}
+            self.file = self.r.json()
 
             ### Create attibutes for class ###
             self.name = self.file["filename"]
