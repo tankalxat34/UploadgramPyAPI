@@ -121,4 +121,4 @@ Also you can write path to save file:
 up_file.download("D:\\MyMainFolder\\")
 ```
 
-It's enough! Successful use of the UploadgramPyAPI library
+It's enough! Successful use of the UploadgramPyAPI library!
