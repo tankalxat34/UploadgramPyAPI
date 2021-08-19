@@ -77,7 +77,7 @@ up_file.delete()
 
 Last string deleted the `image.jpg` from `uploadgram.me`. If you want to make sure, you can open `url` in your browser. You will get the 404-error:
 
-![Alt](https://sun9-47.userapi.com/impg/uq_Qsm8Ot_ZgLuM4TSQV5_KRU570WVOwKhSmYw/JOEWnjcVM4o.jpg?size=872x665&quality=96&sign=dc5a711ad2321f8d5357f2b4bf62d02b&type=album "slide")
+![Alt](https://sun9-78.userapi.com/impg/jKe2pjbifNJ7QNR3wvkiVWV7wzHebukEwd4Xlw/HbreA_TjlIg.jpg?size=922x665&quality=96&sign=b37ab6325819b5589ee8bbed9af61252&type=album "slide")
 
 ## Rename file
 
