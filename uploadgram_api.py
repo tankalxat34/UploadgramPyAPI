@@ -1,27 +1,25 @@
 """
-~~~~~~~~~~~~~~~~~~~~~
-~~~~uploadgram_api.py~~~~
-~~~~~~~~~~~~~~~~~~~~~
+********************************
+*------------------------------*
+*--------UploadgramPyAPI-------*
+*------------------------------*
+********************************
 
 Author: tankalxat34
-
 Description: 
     This API can be upload, download, remove and rename any files from the service uploadgram.me. Using programming language: Python.
-
 Contacts (API Author):
-    - telegram: @tankalxat34
-    - telegram channel: https://t.me/tankalxat34_channel
     - github: https://github.com/tankalxat34/UploadgramPyAPI
-
+    - email: tankalxat34@gmail.com
 Contacts (Uploadgram Author):
     - telegrams channel: https://t.me/uploadgramme
-
 """
 
-import requests, getpass, os, os.path, fake_useragent, json
+import requests, getpass, os, os.path, json
 
 global USER_AGENT
-USER_AGENT = fake_useragent.UserAgent().chrome
+# You can replace this user-agent any different
+USER_AGENT = "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/523.15 (KHTML, like Gecko, Safari/419.3) Arora/0.2"
 
 
 class UploadgramFile:
@@ -33,13 +31,10 @@ class UploadgramFile:
         self.id = id
         self.key = key
 
-        self.url = "https://api.uploadgram.me/get/"
-        self.url_file = "https://dl.uploadgram.me/" + self.id
-        self.url_status = 'https://api.uploadgram.me/status'
-        self.url_delete = "https://api.uploadgram.me/delete/"
-        self.url_import = ""
+        self.url = "https://dl.uploadgram.me/" + self.id
+        self.url_import = None
 
-        self.r = requests.get(self.url + self.id)
+        self.r = requests.get("https://api.uploadgram.me/get/" + self.id)
         if self.r:
             self.file = self.r.json()
 
@@ -50,28 +45,39 @@ class UploadgramFile:
             self.userIp = self.file["userIp"]
 
             ### Create import link ###
-            if self.key != None:
-                dict_part_url_to_import = ({str(self.key): {'filename': os.path.basename(self.name),
-                                                               'size': int(self.size),
-                                                               'url': str(self.url_file)}})
-                self.url_import = "https://uploadgram.me/upload/#import:" + json.dumps(dict_part_url_to_import)
+            dict_part_url_to_import = ({str(self.key): {'filename': os.path.basename(self.name),
+                                                           'size': int(self.size),
+                                                           'url': str(self.url)}})
+            self.url_import = "https://uploadgram.me/upload/#import:" + json.dumps(dict_part_url_to_import)
         else:
             raise ValueError(f"File with this id ({self.id}) does not exist")
 
     def get_json(self):
+        """
+        Returns json response from answer
+        """
         return self.file
 
     def download(self, path=f"C:\\Users\\{getpass.getuser()}\\Downloads\\"):
+        """
+        Returns True if the file was download on your PC
+        """
         with open(path + self.name, 'wb') as f:
-            f.write((requests.get(self.url_file + "?raw")).content)
+            f.write((requests.get(self.url + "?raw")).content)
         return True
 
     def delete(self):
+        """
+        Returns response from server if file deleted successfully
+        """
         self.r_delete = requests.get("https://api.uploadgram.me/delete/" + self.key,
                                      headers={"user-agent": USER_AGENT})
         return self.r_delete
 
     def rename(self, new_name: str):
+        """
+        Returns response from server if file renamed successfully
+        """
         self.r_rename = requests.post("https://api.uploadgram.me/rename/" + self.key,
                                       data={"new_filename": new_name,
                                             "user-agent": USER_AGENT})
@@ -80,14 +86,17 @@ class UploadgramFile:
 
 class NewFile:
     def __init__(self, path):
+        """
+        :param path:    Path to file what you want to upload
+        """
         self.path = path
         self.url_upload = 'https://api.uploadgram.me/upload'
         self.file = open(self.path, "rb")
 
-        self.key = ""
-        self.id = ""
-        self.url = ""
-        self.url_import = ""
+        self.key = None
+        self.id = None
+        self.url = None
+        self.url_import = None
 
     def upload(self):
         """return {'ok': True, 'url': 'https://dl.uploadgram.me/new_file_id', 'delete': 'delete_key'}"""
@@ -97,9 +106,5 @@ class NewFile:
         self.key = self.r.json()["delete"]
         self.id = self.r.json()["url"].split("/")[-1]
         self.url = self.r.json()["url"]
-        dict_part_url_to_import = ({str(self.key): {'filename': os.path.basename(self.path),
-                                                       'size': int(
-                                                           UploadgramFile(self.id, self.r.json()['delete']).file["size"]),
-                                                       'url': str(self.url)}})
-        self.url_import = "https://uploadgram.me/upload/#import:" + json.dumps(dict_part_url_to_import)
+        self.url_import = UploadgramFile(self.id, self.key).url_import
         return self.r.json()
