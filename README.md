@@ -8,7 +8,7 @@ C:\Users\Admin\AppData\Local\Programs\Python\Python39\Lib\uploadgram_api.py
 ```
 
 # Quickstart
-## Download any file
+## Upload any file
 Example:
 ```py
 import uploadgram_api
