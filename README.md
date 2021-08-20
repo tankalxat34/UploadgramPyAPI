@@ -2,9 +2,42 @@
 This API can be upload, download, remove and rename any files from the service https://uploadgram.me . Using programming language: Python.
 
 # Install
-Place file `uploadgram_api.py` into your Python-folder. For example:
+Download file `uploadgram_api.py` and plase its into your Python-folder. For example:
 ```
 C:\Users\Admin\AppData\Local\Programs\Python\Python39\Lib\uploadgram_api.py
+```
+
+# Quickstart
+## Download any file
+Example:
+```py
+import uploadgram_api
+up_file = uploadgram_api.NewFile("D:\\image.jpg")
+up_file.upload()
+```
+
+## Delete any file
+Example:
+```py
+import uploadgram_api
+up_file = uploadgram_api.UploadgramFile("611e5e6237f6fg", "e3da26e9dddd2e01b8c0831370695e9088a96ff81e262fc2g")
+up_file.delete()
+```
+
+## Rename any file
+Example:
+```py
+import uploadgram_api
+up_file = uploadgram_api.UploadgramFile("611e5e6237f6fg", "e3da26e9dddd2e01b8c0831370695e9088a96ff81e262fc2g")
+up_file.rename("ItsNewNameForFile.jpg")
+```
+
+## Download any file
+Example:
+```py
+import uploadgram_api
+up_file = uploadgram_api.UploadgramFile("611e5e6237f6fg", "e3da26e9dddd2e01b8c0831370695e9088a96ff81e262fc2g")
+up_file.download()
 ```
 
 # Using
