@@ -1,6 +1,12 @@
 # UploadgramPyAPI
 This API can be upload, download, remove and rename any files from the service https://uploadgram.me . Using programming language: Python.
 
+# Install
+Place file `uploadgram_api.py` into your Python-folder. For example:
+```
+C:\Users\Admin\AppData\Local\Programs\Python\Python39\Lib\uploadgram_api.py
+```
+
 # Using
 Now we can looking, how to use UploadgramPyAPI
 
