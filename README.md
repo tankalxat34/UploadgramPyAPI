@@ -76,8 +76,11 @@ Now file `image.jpg` was uploaded in uploadgram.me and you was get the dictionar
 UploadgramPyAPI can parse this json-responce and create new attributes: `url`, `key` and `url_import`. 
 
 
+🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑
 
-___🛑Attribute `key` is a very important string for renaming and removing the file. You need to save its, else you won't do it.🛑___
+___Attribute `key` is a very important string for renaming and removing the file. You need to save its, else you won't do it.___
+
+🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑
 
 
 
