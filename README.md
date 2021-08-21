@@ -1,5 +1,5 @@
 # UploadgramPyAPI
-![Alt](https://sun9-81.userapi.com/impg/WvNelnIv0g8I653lujNPMu4i_jAfucEmSXkfnw/aCf9pGH9Af0.jpg?size=450x450&quality=96&sign=faeee5072e7ec674fd10b86317378306&type=album "slide")
+![Alt](https://sun9-33.userapi.com/impg/uRrtaPGWd5M3u529Cr-PVUNORq-O4EwDjgwZyA/ak0CZq-ijFk.jpg?size=113x113&quality=96&sign=ce6642140fc672643d33e934d1235f7d&type=album "icon")
 
 
 This API can be upload, download, remove and rename any files from the service https://uploadgram.me . Using programming language: Python.
