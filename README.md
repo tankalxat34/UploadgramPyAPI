@@ -9,7 +9,6 @@ C:\Users\Admin\AppData\Local\Programs\Python\Python39\Lib\uploadgram_api.py
 
 # Quickstart
 ## Upload any file
-Example:
 ```py
 import uploadgram_api
 up_file = uploadgram_api.NewFile("D:\\image.jpg")
@@ -17,7 +16,6 @@ up_file.upload()
 ```
 
 ## Delete any file
-Example:
 ```py
 import uploadgram_api
 up_file = uploadgram_api.UploadgramFile("611e5e6237f6fg", "e3da26e9dddd2e01b8c0831370695e9088a96ff81e262fc2g")
@@ -25,7 +23,6 @@ up_file.delete()
 ```
 
 ## Rename any file
-Example:
 ```py
 import uploadgram_api
 up_file = uploadgram_api.UploadgramFile("611e5e6237f6fg", "e3da26e9dddd2e01b8c0831370695e9088a96ff81e262fc2g")
@@ -33,7 +30,6 @@ up_file.rename("ItsNewNameForFile.jpg")
 ```
 
 ## Download any file
-Example:
 ```py
 import uploadgram_api
 up_file = uploadgram_api.UploadgramFile("611e5e6237f6fg", "e3da26e9dddd2e01b8c0831370695e9088a96ff81e262fc2g")
@@ -78,7 +74,12 @@ Now file `image.jpg` was uploaded in uploadgram.me and you was get the dictionar
 ```
 
 UploadgramPyAPI can parse this json-responce and create new attributes: `url`, `key` and `url_import`. 
-Attribute `key` is a very important string for renaming and removing the file. You need to save its, else you won't do it.
+
+
+
+___🛑Attribute `key` is a very important string for renaming and removing the file. You need to save its, else you won't do it.🛑___
+
+
 
 Attribute `url_import` it's a simple url for import your file in a dashboard in https://dl.uploadgram.me.
 Its look like this:
