@@ -10,7 +10,7 @@ __Author: tankalxat34__
 In your command line perform this command:
 
 ```bat
-pip install uploadgrampyapi
+pip install UploadgramPyAPI
 ```
 
 # Quickstart
