@@ -4,6 +4,8 @@
 
 This API can be upload, download, remove and rename any files from the service https://uploadgram.me . Using programming language: Python.
 
+__Author: tankalxat34__
+
 # Install
 Download file `uploadgram_api.py` and place its into your Python-folder. For example:
 ```
