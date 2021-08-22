@@ -24,21 +24,21 @@ up_file.upload()
 ## Delete any file
 ```py
 import UploadgramPyAPI
-up_file = UploadgramPyAPI.UploadgramFile("611e5e6237f6fg", "e3da26e9dddd2e01b8c0831370695e9088a96ff81e262fc2g")
+up_file = UploadgramPyAPI.File("611e5e6237f6fg", "e3da26e9dddd2e01b8c0831370695e9088a96ff81e262fc2g")
 up_file.delete()
 ```
 
 ## Rename any file
 ```py
 import UploadgramPyAPI
-up_file = UploadgramPyAPI.UploadgramFile("611e5e6237f6fg", "e3da26e9dddd2e01b8c0831370695e9088a96ff81e262fc2g")
+up_file = UploadgramPyAPI.File("611e5e6237f6fg", "e3da26e9dddd2e01b8c0831370695e9088a96ff81e262fc2g")
 up_file.rename("ItsNewNameForFile.jpg")
 ```
 
 ## Download any file
 ```py
 import UploadgramPyAPI
-up_file = UploadgramPyAPI.UploadgramFile("611e5e6237f6fg", "e3da26e9dddd2e01b8c0831370695e9088a96ff81e262fc2g")
+up_file = UploadgramPyAPI.File("611e5e6237f6fg", "e3da26e9dddd2e01b8c0831370695e9088a96ff81e262fc2g")
 up_file.download()
 ```
 
@@ -121,7 +121,7 @@ Firstly, you need to write this strings for connect to server and file on it:
 
 ```py
 import UploadgramPyAPI
-up_file = UploadgramPyAPI.UploadgramFile("611e5e6237f6fg", "e3da26e9dddd2e01b8c0831370695e9088a96ff81e262fc2g")
+up_file = UploadgramPyAPI.File("611e5e6237f6fg", "e3da26e9dddd2e01b8c0831370695e9088a96ff81e262fc2g")
 up_file.delete()
 ```
 
@@ -139,7 +139,7 @@ The beginning is the same as in the previous steps:
 
 ```py
 import UploadgramPyAPI
-up_file = UploadgramPyAPI.UploadgramFile("611e5e6237f6fg", "e3da26e9dddd2e01b8c0831370695e9088a96ff81e262fc2g")
+up_file = UploadgramPyAPI.File("611e5e6237f6fg", "e3da26e9dddd2e01b8c0831370695e9088a96ff81e262fc2g")
 
 # this string will rename the filename
 up_file.rename("ItsNewNameForFile.jpg")
@@ -155,7 +155,7 @@ You can download the file from server:
 
 ```py
 import UploadgramPyAPI
-up_file = UploadgramPyAPI.UploadgramFile("611e5e6237f6fg", "e3da26e9dddd2e01b8c0831370695e9088a96ff81e262fc2g")
+up_file = UploadgramPyAPI.File("611e5e6237f6fg", "e3da26e9dddd2e01b8c0831370695e9088a96ff81e262fc2g")
 
 # this string will help download the file in the default download's folder
 up_file.download()
