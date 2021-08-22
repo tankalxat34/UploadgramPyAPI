@@ -7,37 +7,38 @@ This API can be upload, download, remove and rename any files from the service h
 __Author: tankalxat34__
 
 # Install
-Download file `uploadgram_api.py` and place its into your Python-folder. For example:
-```
-C:\Users\Admin\AppData\Local\Programs\Python\Python39\Lib\uploadgram_api.py
+In your command line perform this command:
+
+```bat
+pip install uploadgrampyapi
 ```
 
 # Quickstart
 ## Upload any file
 ```py
-import uploadgram_api
-up_file = uploadgram_api.NewFile("D:\\image.jpg")
+import UploadgramPyAPI
+up_file = UploadgramPyAPI.NewFile("D:\\image.jpg")
 up_file.upload()
 ```
 
 ## Delete any file
 ```py
-import uploadgram_api
-up_file = uploadgram_api.UploadgramFile("611e5e6237f6fg", "e3da26e9dddd2e01b8c0831370695e9088a96ff81e262fc2g")
+import UploadgramPyAPI
+up_file = UploadgramPyAPI.UploadgramFile("611e5e6237f6fg", "e3da26e9dddd2e01b8c0831370695e9088a96ff81e262fc2g")
 up_file.delete()
 ```
 
 ## Rename any file
 ```py
-import uploadgram_api
-up_file = uploadgram_api.UploadgramFile("611e5e6237f6fg", "e3da26e9dddd2e01b8c0831370695e9088a96ff81e262fc2g")
+import UploadgramPyAPI
+up_file = UploadgramPyAPI.UploadgramFile("611e5e6237f6fg", "e3da26e9dddd2e01b8c0831370695e9088a96ff81e262fc2g")
 up_file.rename("ItsNewNameForFile.jpg")
 ```
 
 ## Download any file
 ```py
-import uploadgram_api
-up_file = uploadgram_api.UploadgramFile("611e5e6237f6fg", "e3da26e9dddd2e01b8c0831370695e9088a96ff81e262fc2g")
+import UploadgramPyAPI
+up_file = UploadgramPyAPI.UploadgramFile("611e5e6237f6fg", "e3da26e9dddd2e01b8c0831370695e9088a96ff81e262fc2g")
 up_file.download()
 ```
 
@@ -50,14 +51,14 @@ Now we can looking, how to use UploadgramPyAPI
 Firstly, you need to import the library:
 
 ```py
-import uploadgram_api
+import UploadgramPyAPI
 ```
 
 ### Step 2
 Next if you want to upload new file on uploadgram.me you need write this in your file:
 
 ```py
-up_file = uploadgram_api.NewFile("D:\\image.jpg")
+up_file = UploadgramPyAPI.NewFile("D:\\image.jpg")
 ```
 
 This string will preparing your file to upload.
@@ -103,8 +104,8 @@ Open this url in your browser and uploaded file will appear on the website! You 
 
 So your code can be looking like this:
 ```py
-import uploadgram_api
-up_file = uploadgram_api.NewFile("D:\\image.jpg")
+import UploadgramPyAPI
+up_file = UploadgramPyAPI.NewFile("D:\\image.jpg")
 up_file.upload()
 ```
 
@@ -119,8 +120,8 @@ If you have the `key` attribute for the file, you can delete its!
 Firstly, you need to write this strings for connect to server and file on it:
 
 ```py
-import uploadgram_api
-up_file = uploadgram_api.UploadgramFile("611e5e6237f6fg", "e3da26e9dddd2e01b8c0831370695e9088a96ff81e262fc2g")
+import UploadgramPyAPI
+up_file = UploadgramPyAPI.UploadgramFile("611e5e6237f6fg", "e3da26e9dddd2e01b8c0831370695e9088a96ff81e262fc2g")
 up_file.delete()
 ```
 
@@ -137,8 +138,8 @@ We need use the `key` attribute for rename the file.
 The beginning is the same as in the previous steps:
 
 ```py
-import uploadgram_api
-up_file = uploadgram_api.UploadgramFile("611e5e6237f6fg", "e3da26e9dddd2e01b8c0831370695e9088a96ff81e262fc2g")
+import UploadgramPyAPI
+up_file = UploadgramPyAPI.UploadgramFile("611e5e6237f6fg", "e3da26e9dddd2e01b8c0831370695e9088a96ff81e262fc2g")
 
 # this string will rename the filename
 up_file.rename("ItsNewNameForFile.jpg")
@@ -153,8 +154,8 @@ And now you can see this situation:
 You can download the file from server:
 
 ```py
-import uploadgram_api
-up_file = uploadgram_api.UploadgramFile("611e5e6237f6fg", "e3da26e9dddd2e01b8c0831370695e9088a96ff81e262fc2g")
+import UploadgramPyAPI
+up_file = UploadgramPyAPI.UploadgramFile("611e5e6237f6fg", "e3da26e9dddd2e01b8c0831370695e9088a96ff81e262fc2g")
 
 # this string will help download the file in the default download's folder
 up_file.download()
