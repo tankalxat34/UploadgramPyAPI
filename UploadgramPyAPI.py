@@ -22,7 +22,7 @@ global USER_AGENT
 USER_AGENT = "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/523.15 (KHTML, like Gecko, Safari/419.3) Arora/0.2"
 
 
-class UploadgramFile:
+class File:
     def __init__(self, id: str, key: str):
         """
         :param id:  Get id file that placed at the end URL for file
@@ -106,5 +106,5 @@ class NewFile:
         self.key = self.r.json()["delete"]
         self.id = self.r.json()["url"].split("/")[-1]
         self.url = self.r.json()["url"]
-        self.url_import = UploadgramFile(self.id, self.key).url_import
+        self.url_import = File(self.id, self.key).url_import
         return self.r.json()
