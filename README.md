@@ -4,6 +4,10 @@
 
 This API can be upload, download, remove and rename any files from the service https://uploadgram.me . Using programming language: Python.
 
+[![Downloads](https://pepy.tech/badge/uploadgrampyapi)](https://pepy.tech/project/uploadgrampyapi)
+[![Downloads](https://pepy.tech/badge/uploadgrampyapi/month)](https://pepy.tech/project/uploadgrampyapi)
+[![Downloads](https://pepy.tech/badge/uploadgrampyapi/week)](https://pepy.tech/project/uploadgrampyapi)
+
 __Author: tankalxat34__
 
 # Install
