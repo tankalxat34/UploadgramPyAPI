@@ -7,7 +7,7 @@ This API can be upload, download, remove and rename any files from the service h
 [![Downloads](https://pepy.tech/badge/uploadgrampyapi)](https://pepy.tech/project/uploadgrampyapi)
 [![Downloads](https://pepy.tech/badge/uploadgrampyapi/month)](https://pepy.tech/project/uploadgrampyapi)
 [![Downloads](https://pepy.tech/badge/uploadgrampyapi/week)](https://pepy.tech/project/uploadgrampyapi)
-[![Supported Versions](https://img.shields.io/pypi/pyversions/requests.svg)](https://pypi.org/project/requests)
+[![Supported Versions](https://img.shields.io/pypi/pyversions/uploadgrampyapi.svg)](https://pypi.org/project/uploadgrampyapi)
 
 __Author: tankalxat34__
 
