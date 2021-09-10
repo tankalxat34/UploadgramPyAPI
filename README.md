@@ -10,6 +10,7 @@ This API can be upload, download, remove and rename any files from the service [
 [![Supported Versions](https://img.shields.io/pypi/pyversions/uploadgrampyapi.svg)](https://pypi.org/project/uploadgrampyapi)
 [![PyPI](https://img.shields.io/pypi/v/uploadgrampyapi.svg)](https://pypi.org/project/uploadgrampyapi/)
 [![PyPI](https://img.shields.io/github/stars/tankalxat34/UploadgramPyAPI)](https://pypi.org/project/uploadgrampyapi/)
+[![PyPi](https://img.shields.io/pypi/format/uploadgrampyapi)](https://pypi.org/project/uploadgrampyapi/)
 
 __Author: tankalxat34__
 
