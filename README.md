@@ -15,7 +15,7 @@ This API can be upload, download, remove and rename any files from the service [
 __Author: tankalxat34__
 
 # Install
-In your command line perform this command:
+In your CMD perform this command:
 
 ```bat
 pip install UploadgramPyAPI
