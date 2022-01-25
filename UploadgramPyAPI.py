@@ -11,7 +11,7 @@ Contacts (API Author):
     - github: https://github.com/tankalxat34/UploadgramPyAPI
     - email: tankalxat34@gmail.com
 Contacts (Uploadgram Author):
-    - telegrams channel: https://t.me/uploadgramme
+    - telegram channel: https://t.me/uploadgramme
 
 ****************************************************************
 *----------------------Example of use:-------------------------*
@@ -19,12 +19,16 @@ Contacts (Uploadgram Author):
 
 import UploadgramPyAPI
 
-# upload any file
+# Upload any file
 up_new_file = UploadgramPyAPI.NewFile("D:\\image.jpg")
 up_new_file.upload()
 
-# set up connection to file
+# Set up connection to file like here
 up_file = UploadgramPyAPI.File("611e5e6237f6fg", "e3da26e9dddd2e01b8c0831370695e9088a96ff81e262fc2g")
+# or like here
+# up_file = UploadgramPyAPI.File("e3da26e9dddd2e01b8c0831370695e9088a96ff81e262fc2g")
+# or like this
+# up_file = UploadgramPyAPI.File("611e5e6237f6fg")
 
 # Download any file
 up_file.download()
@@ -48,33 +52,34 @@ USER_AGENT = "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/523.15
 global NONE
 NONE = "none"
 
+# Const for default length of 'id' parameter
+global LENGTH_ID
+LENGTH_ID = 14
+
 class UploadgramConnectionError(Exception):
     def __init__(self):
-        self.message = "uploadgram.me currently unavailable. Please, try again later."
-        super().__init__(self.message)
+        super().__init__("uploadgram.me currently unavailable. Please, try again later.")
 
 class UploadgramUsingKeyError(Exception):
     def __init__(self, text):
-        self.text = text
-        self.message = 'You can not ' + text + ' this file because you using the NONE-const for "key" parameter'
-        super().__init__(self.message)
+        super().__init__('You can not ' + text + ' this file because you using the NONE-const for "key" parameter or you using "id" file instead of "key" parameter')
 
 class UploadgramFileIsNotAvalible(Exception):
     def __init__(self, id):
-        self.id = id
-        self.message = "This file " + id + " does not exists"
-        super().__init__(self.message)
+        super().__init__("This file " + id + " does not exists")
 
 class File:
-    def __init__(self, id: str, key: str):
+    def __init__(self, id, key=NONE):
         """
         :param id:  Get id file that placed at the end URL for file
         :param key: Key for rename and remove file from server
         """
         self.id = id
-        self.key = key
+        if len(self.id) > LENGTH_ID:
+            self.key = self.id
+        else:
+            self.key = key
 
-        self.url = "https://dl.uploadgram.me/" + self.id
         self.url_import = None
 
         try:
@@ -85,17 +90,31 @@ class File:
         if self.r:
             self.json = self.r.json()
 
+            self.id = self.json["url"].split("/")[-1]
+            self.url = "https://dl.uploadgram.me/" + self.id
+
             ### Create attibutes for class ###
             self.name = self.json["filename"]
             self.size = self.json["size"]
-            self.userTelegramId = self.json["userTelegramId"]
-            self.userIp = self.json["userIp"]
 
-            ### Create import link ###
-            dict_part_url_to_import = ({str(self.key): {'filename': os.path.basename(self.name),
-                                                           'size': int(self.size),
-                                                           'url': str(self.url)}})
-            self.url_import = "https://uploadgram.me/upload/#import:" + json.dumps(dict_part_url_to_import)
+            try:
+                self.userTelegramId = self.json["userTelegramId"]
+            except Exception:
+                self.userTelegramId = None
+
+            try:
+                self.userIp = self.json["userIp"]
+            except Exception:
+                self.userIp = None
+
+            if str(self.key) != NONE and len(self.key) > LENGTH_ID:
+                ### Create import link ###
+                dict_part_url_to_import = ({str(self.key): {'filename': os.path.basename(self.name),
+                                                               'size': int(self.size),
+                                                               'url': str(self.url)}})
+                self.url_import = "https://uploadgram.me/upload/#import:" + json.dumps(dict_part_url_to_import)
+            else:
+                self.url_import = 'UNABLE TO GENERATE url_import BECAUSE self.key GOT A STRING "none" VALUE'
         else:
             raise UploadgramFileIsNotAvalible(self.id)
 
@@ -142,12 +161,11 @@ class NewFile:
         """
         :param path:    Path to file what you want to upload
         """
-
         try:
             self.check_to_avaliable = requests.get("https://api.uploadgram.me/status", headers={"user-agent": USER_AGENT})
             self.path = path
             self.url_upload = 'https://api.uploadgram.me/upload'
-            self.json = open(self.path, "rb")
+            self.readfile = open(self.path, "rb")
 
             self.key = None
             self.id = None
@@ -160,7 +178,7 @@ class NewFile:
         """return {'ok': True, 'url': 'https://dl.uploadgram.me/new_file_id', 'delete': 'delete_key'}"""
         self.r = requests.post(self.url_upload,
                                headers={"user-agent": USER_AGENT},
-                               files={"file_upload": self.json})
+                               files={"file_upload": self.readfile})
         self.key = self.r.json()["delete"]
         self.id = self.r.json()["url"].split("/")[-1]
         self.url = self.r.json()["url"]

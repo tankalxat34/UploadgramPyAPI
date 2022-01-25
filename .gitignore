@@ -127,3 +127,12 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+test.py
+name.png
+.idea
+
+create_pyproject_pypi.bat
+pyproject.toml
+upload_new_release.bat
+release_note.txt
