@@ -1,6 +1,6 @@
 # Version 1.6
 ## EN
-**Main in 1.6:**
+**The main thing in 1.6:**
 
 Added new class `UploadgramPyAPI.Random`, that can generate random `ID` or `KEY`. If you want to import any file **(you can import also someone else's file)** from Uploadgram in your [Dashboard]("https://uploadgram.me/upload/#/"), you need in parameter `KEY` in class `UploadgramPyAPI.File` write this random `KEY`. For example:
 ```py
