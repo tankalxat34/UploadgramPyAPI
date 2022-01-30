@@ -1,17 +1,22 @@
 # UploadgramPyAPI
 ![Alt](https://sun9-33.userapi.com/impg/uRrtaPGWd5M3u529Cr-PVUNORq-O4EwDjgwZyA/ak0CZq-ijFk.jpg?size=113x113&quality=96&sign=ce6642140fc672643d33e934d1235f7d&type=album "icon")
 
+This API can upload, download, remove and rename any files from the service [uploadgram.me](https://uploadgram.me) - a simple and fast file uploader that uses Telegram network as file storage.
 
-This API can be upload, download, remove and rename any files from the service [uploadgram.me](https://uploadgram.me) . Using programming language: Python.
+__If you download this module, you confirm your agreement with the [Terms of Service](https://uploadgram.me/terms.html) and [DMCA Policy](https://uploadgram.me/dmca.html) of [Upoadgram.me](https://uploadgram.me/)__
 
-[![Downloads](https://pepy.tech/badge/uploadgrampyapi)](https://pepy.tech/project/uploadgrampyapi) 
+![GitHub Repo stars](https://img.shields.io/github/stars/tankalxat34/UploadgramPyAPI?style=social)
+
+[![Downloads](https://pepy.tech/badge/uploadgrampyapi)](https://pepy.tech/project/uploadgrampyapi)
 [![Downloads](https://pepy.tech/badge/uploadgrampyapi/month)](https://pepy.tech/project/uploadgrampyapi)
 [![Downloads](https://pepy.tech/badge/uploadgrampyapi/week)](https://pepy.tech/project/uploadgrampyapi)
-![tankalxat34](https://img.shields.io/badge/max%20downloads%20on%20week-457-097ABB)
 [![Supported Versions](https://img.shields.io/pypi/pyversions/uploadgrampyapi.svg)](https://pypi.org/project/uploadgrampyapi)
 [![PyPI](https://img.shields.io/pypi/v/uploadgrampyapi.svg)](https://pypi.org/project/uploadgrampyapi/)
-[![PyPI](https://img.shields.io/github/stars/tankalxat34/UploadgramPyAPI)](https://pypi.org/project/uploadgrampyapi/)
 [![PyPi](https://img.shields.io/pypi/format/uploadgrampyapi)](https://pypi.org/project/uploadgrampyapi/)
+![GitHub top language](https://img.shields.io/github/languages/top/tankalxat34/UploadgramPyAPI)
+![GitHub last commit](https://img.shields.io/github/last-commit/tankalxat34/uploadgrampyapi)
+
+[![releases note](https://img.shields.io/badge/-releases%20note-blue?style=for-the-badge)](https://github.com/tankalxat34/UploadgramPyAPI/blob/main/releases_note.md)
 
 __Author: tankalxat34__
 

@@ -6,12 +6,21 @@
 ********************************
 Author: tankalxat34
 Description: 
-    This API can be upload, download, remove and rename any files from the service uploadgram.me. Using programming language: Python.
+    This API can be upload, download, remove and rename any files from the service uploadgram.me.
+Important links:
+    - Uploadgram.me link: https://uploadgram.me/
+    - Terms of Service: https://uploadgram.me/terms.html
+    - DMCA Policy: https://uploadgram.me/dmca.html
 Contacts (API Author):
     - github: https://github.com/tankalxat34/UploadgramPyAPI
-    - email: tankalxat34@gmail.com
+    - email: mailto:tankalxat34@gmail.com?subject=User%20of%20UploadgramPyAPI
+    - telegram: https://t.me/tankalxat34
 Contacts (Uploadgram Author):
     - telegram channel: https://t.me/uploadgramme
+    - telegram author: https://t.me/pato05
+Other links:
+    - pypi link: https://pypi.org/project/uploadgrampyapi/
+    - pepy.tech statistic: https://pepy.tech/project/UploadgramPyAPI
 
 ****************************************************************
 *----------------------Example of use:-------------------------*
@@ -41,8 +50,12 @@ up_file.delete()
 
 ****************************************************************
 """
-
-import requests, getpass, os, os.path, json
+import random
+import getpass
+import json
+import os
+import os.path
+import requests
 
 # You can replace this user-agent any different
 global USER_AGENT
@@ -56,20 +69,92 @@ NONE = "none"
 global LENGTH_ID
 LENGTH_ID = 14
 
+# Const for default length of 'key' parameter
+global LENGTH_KEY
+LENGTH_KEY = 49
+
+
 class UploadgramConnectionError(Exception):
     def __init__(self):
-        super().__init__("uploadgram.me currently unavailable. Please, try again later.")
+        super().__init__("Uploadgram.me currently unavailable. Please, try again later.")
+
 
 class UploadgramUsingKeyError(Exception):
     def __init__(self, text):
         super().__init__('You can not ' + text + ' this file because you using the NONE-const for "key" parameter or you using "id" file instead of "key" parameter')
 
+
+class UploadgramInvalidKey(Exception):
+    def __init__(self, text):
+        super().__init__("Invalid key to " + text + " this file")
+
+
 class UploadgramFileIsNotAvalible(Exception):
     def __init__(self, id):
         super().__init__("This file " + id + " does not exists")
 
+
+class UploadgramInvalidValue(Exception):
+    def __init__(self, value, parameter):
+        super().__init__('Invalid value "' + value + '" for parameter "' + parameter + '"')
+
+
+class ServiceRules:
+    def __init__(self, type="policies"):
+        """Class for getting text from `Terms of Service` and `DMCA Policy`
+
+        :param type:    Get string values: "policies" or "dmca"
+        """
+        self.req = requests.get("https://uploadgram.me/"+type+".txt", headers={"user-agent": USER_AGENT})
+        if self.req:
+            self.text = self.req.text
+        else:
+            if self.req.status_code == 404:
+                raise UploadgramInvalidValue(type, "type")
+            else:
+                raise UploadgramConnectionError()
+
+    def get(self): 
+        return self.text
+
+
+class Random:
+    def __init__(self, type="id", pattern_id="61"+11*"."+"g", pattern_key=48*"."+"g", place_for_symbol="."):
+        """Class for generate random key and id
+
+        :param type:                String parameter, that you want to get: "id" or "key"
+        :param pattern_id:          String pattern, that are using to generate file id
+        :param pattern_key:         String pattern, that are using to generate file key
+        :param place_for_symbol:    Any symbol that will be replaced on a random symbol
+        """
+        if type == "id" or type == "key":
+            self.type = type
+        else:
+            raise UploadgramInvalidValue(type, "type")
+        if self.type == "id":
+            self.using_pattern = pattern_id
+        else:
+            self.using_pattern = pattern_key
+        self.pattern_id = pattern_id
+        self.pattern_key = pattern_key
+        self.length = len(self.using_pattern)
+        self.place_for_symbol = place_for_symbol
+        self.local_result = ""
+
+    def get(self):
+        """Returns random string for `key` or `id` parameter"""
+        self.local_result = self.using_pattern
+        for i in range(self.length):
+            if self.using_pattern[i] == self.place_for_symbol:
+                self.local_result = self.local_result.replace(self.place_for_symbol, hex(random.randint(0, 15))[2:], 1)
+        return self.local_result
+
+    def get_url(self):
+        return "https://dl.uploadgram.me/" + self.get()
+
+
 class File:
-    def __init__(self, id, key=NONE):
+    def __init__(self, id: str, key=NONE):
         """
         :param id:  Get id file that placed at the end URL for file
         :param key: Key for rename and remove file from server
@@ -96,6 +181,7 @@ class File:
             ### Create attibutes for class ###
             self.name = self.json["filename"]
             self.size = self.json["size"]
+            self.scanned = self.json["wasScanned"]
 
             try:
                 self.userTelegramId = self.json["userTelegramId"]
@@ -114,7 +200,8 @@ class File:
                                                                'url': str(self.url)}})
                 self.url_import = "https://uploadgram.me/upload/#import:" + json.dumps(dict_part_url_to_import)
             else:
-                self.url_import = 'UNABLE TO GENERATE url_import BECAUSE self.key GOT A STRING "none" VALUE'
+                # self.url_import = 'UNABLE TO GENERATE url_import BECAUSE self.key GOT A STRING "none" VALUE'
+                self.url_import = None
         else:
             raise UploadgramFileIsNotAvalible(self.id)
 
@@ -141,7 +228,10 @@ class File:
                                      headers={"user-agent": USER_AGENT})
         else:
             raise UploadgramUsingKeyError("delete")
-        return self.r_delete
+        if self.r_delete:
+            return self.r_delete
+        else:
+            raise UploadgramInvalidKey("delete")
 
     def rename(self, new_name: str):
         """
@@ -153,7 +243,10 @@ class File:
                                             "user-agent": USER_AGENT})
         else:
             raise UploadgramUsingKeyError("rename")
-        return self.r_rename
+        if self.r_rename:
+            return self.r_rename
+        else:
+            raise UploadgramInvalidKey("rename")
 
 
 class NewFile:
@@ -162,7 +255,7 @@ class NewFile:
         :param path:    Path to file what you want to upload
         """
         try:
-            self.check_to_avaliable = requests.get("https://api.uploadgram.me/status", headers={"user-agent": USER_AGENT})
+            self.check_to_available = requests.get("https://api.uploadgram.me/status", headers={"user-agent": USER_AGENT})
             self.path = path
             self.url_upload = 'https://api.uploadgram.me/upload'
             self.readfile = open(self.path, "rb")
