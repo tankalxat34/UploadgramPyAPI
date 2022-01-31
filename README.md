@@ -5,7 +5,7 @@ This API can upload, download, remove and rename any files from the service [upl
 
 __If you download this module, you confirm your agreement with the [Terms of Service](https://uploadgram.me/terms.html) and [DMCA Policy](https://uploadgram.me/dmca.html) of [Upoadgram.me](https://uploadgram.me/)__
 
-![GitHub Repo stars](https://img.shields.io/github/stars/tankalxat34/UploadgramPyAPI?style=social)
+[![GitHub Repo stars](https://img.shields.io/github/stars/tankalxat34/UploadgramPyAPI?style=social)](https://github.com/tankalxat34/UploadgramPyAPI)
 
 [![Downloads](https://pepy.tech/badge/uploadgrampyapi)](https://pepy.tech/project/uploadgrampyapi)
 [![Downloads](https://pepy.tech/badge/uploadgrampyapi/month)](https://pepy.tech/project/uploadgrampyapi)
@@ -14,7 +14,8 @@ __If you download this module, you confirm your agreement with the [Terms of Ser
 [![PyPI](https://img.shields.io/pypi/v/uploadgrampyapi.svg)](https://pypi.org/project/uploadgrampyapi/)
 [![PyPi](https://img.shields.io/pypi/format/uploadgrampyapi)](https://pypi.org/project/uploadgrampyapi/)
 ![GitHub top language](https://img.shields.io/github/languages/top/tankalxat34/UploadgramPyAPI)
-![GitHub last commit](https://img.shields.io/github/last-commit/tankalxat34/uploadgrampyapi)
+[![GitHub last commit](https://img.shields.io/github/last-commit/tankalxat34/uploadgrampyapi)](https://github.com/tankalxat34/UploadgramPyAPI/commits/main)
+[![GitHub Release Date](https://img.shields.io/github/release-date/tankalxat34/UploadgramPyAPI)](https://github.com/tankalxat34/UploadgramPyAPI/releases)
 
 [![releases note](https://img.shields.io/badge/-releases%20note-blue?style=for-the-badge)](https://github.com/tankalxat34/UploadgramPyAPI/blob/main/releases_note.md)
 
