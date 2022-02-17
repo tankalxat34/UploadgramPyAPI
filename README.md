@@ -3,7 +3,7 @@
 
 This API can upload, download, remove and rename any files from the service [uploadgram.me](https://uploadgram.me) - a simple and fast file uploader that uses Telegram network as file storage.
 
-__If you download this module, you confirm your agreement with the [Terms of Service](https://uploadgram.me/terms.html) and [DMCA Policy](https://uploadgram.me/dmca.html) of [Upoadgram.me](https://uploadgram.me/)__
+__If you download this module, you confirm your agreement with the [Terms of Service](https://uploadgram.me/terms.html) and [DMCA Policy](https://uploadgram.me/dmca.html) of [Uploadgram.me](https://uploadgram.me/)__
 
 
 [![Downloads](https://pepy.tech/badge/uploadgrampyapi)](https://pepy.tech/project/uploadgrampyapi)
