@@ -99,6 +99,11 @@ class UploadgramInvalidValue(Exception):
         super().__init__('Invalid value "' + value + '" for parameter "' + parameter + '"')
 
 
+class UploadgramInvalidLengthPattern(Exception):
+    def __init__(self, pattern_name, length):
+        super().__init__('Invalid length ' + str(length) + " for " + pattern_name)
+
+
 class ServiceRules:
     def __init__(self, type="policies"):
         """Class for getting text from `Terms of Service` and `DMCA Policy`
@@ -119,7 +124,7 @@ class ServiceRules:
 
 
 class Random:
-    def __init__(self, type="id", pattern_id="61"+11*"."+"g", pattern_key=48*"."+"g", place_for_symbol="."):
+    def __init__(self, type="id", pattern_id="62"+11*"."+"g", pattern_key=48*"."+"g", place_for_symbol="."):
         """Class for generate random key and id
 
         :param type:                String parameter, that you want to get: "id" or "key"
@@ -131,6 +136,10 @@ class Random:
             self.type = type
         else:
             raise UploadgramInvalidValue(type, "type")
+        if len(pattern_id) != LENGTH_ID:
+            raise UploadgramInvalidLengthPattern("pattern_id", len(pattern_id))
+        if len(pattern_key) != LENGTH_KEY:
+            raise UploadgramInvalidLengthPattern("pattern_key", len(pattern_key))
         if self.type == "id":
             self.using_pattern = pattern_id
         else:
@@ -200,7 +209,6 @@ class File:
                                                                'url': str(self.url)}})
                 self.url_import = "https://uploadgram.me/upload/#import:" + json.dumps(dict_part_url_to_import)
             else:
-                # self.url_import = 'UNABLE TO GENERATE url_import BECAUSE self.key GOT A STRING "none" VALUE'
                 self.url_import = None
         else:
             raise UploadgramFileIsNotAvalible(self.id)
@@ -264,6 +272,12 @@ class NewFile:
             self.id = None
             self.url = None
             self.url_import = None
+
+            self.name = None
+            self.size = None
+            self.scanned = None
+            self.userTelegramId = None
+            self.userIp = None
         except Exception:
             raise UploadgramConnectionError()
 
@@ -275,5 +289,22 @@ class NewFile:
         self.key = self.r.json()["delete"]
         self.id = self.r.json()["url"].split("/")[-1]
         self.url = self.r.json()["url"]
-        self.url_import = File(self.id, self.key).url_import
+
+        _local = File(self.id, self.key)
+        self.url_import = _local.url_import
+
+        self.name = _local.json["filename"]
+        self.size = _local.json["size"]
+        self.scanned = _local.json["wasScanned"]
+
+        try:
+            self.userTelegramId = _local.json["userTelegramId"]
+        except Exception:
+            pass
+
+        try:
+            self.userIp = _local.json["userIp"]
+        except Exception:
+            pass
+
         return self.r.json()

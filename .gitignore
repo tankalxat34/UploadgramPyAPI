@@ -136,3 +136,8 @@ create_pyproject_pypi.bat
 pyproject.toml
 upload_new_release.bat
 *.html
+test.md
+*.pdn
+*.png
+*.json
+test_paste.txt

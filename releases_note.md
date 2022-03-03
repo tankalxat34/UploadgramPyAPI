@@ -1,3 +1,26 @@
+# Version 1.6.1
+## EN
+- Added new exception `UploadgramInvalidLengthPattern` that will be show if you are using incorrect length of pattern in `UploadgramPyAPI.Random`. 
+- Edited arg `pattern_id` in class `Random`.
+- Corrected `README.md`.
+- Added new attributes in `UploadgramPyAPI.NewFile`:
+  * `name`
+  * `size`
+  * `scanned`
+  * `userTelegramId` if available
+  * `userIp` if available
+
+## RU
+- Добавлена новая ошибка `UploadgramInvalidLengthPattern`, которая будет возникать если вы используете неправильную длину вашего шаблона для `UploadgramPyAPI.Random`.
+- Изменен аргумент `pattern_id` в классе `UploadgramPyAPI.Random`
+- Изменен `README.md`
+- Добавлены новые атрибуты класса в `UploadgramPyAPI.NewFile`:
+  * `name`
+  * `size`
+  * `scanned`
+  * `userTelegramId` если доступен
+  * `userIp` если доступен
+
 # Version 1.6
 ## EN
 **The main thing in 1.6:**
