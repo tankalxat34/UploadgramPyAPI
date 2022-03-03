@@ -18,6 +18,7 @@ __If you download this module, you confirm your agreement with the [Terms of Ser
 
 [![releases note](https://img.shields.io/badge/-releases%20note-black?style=for-the-badge&logo=markdown)](https://github.com/tankalxat34/UploadgramPyAPI/blob/main/releases_note.md)
 [![github](https://img.shields.io/badge/-git%20hub-black?style=for-the-badge&logo=github)](https://github.com/tankalxat34/UploadgramPyAPI)
+[![PyPi](https://img.shields.io/badge/-pypi-006DAD?style=for-the-badge&logo=pypi&logoColor=white)](https://pypi.org/project/UploadgramPyAPI)
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/tankalxat34/UploadgramPyAPI?style=social)](https://github.com/tankalxat34/UploadgramPyAPI)
 
