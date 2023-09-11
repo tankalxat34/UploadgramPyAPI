@@ -1,6 +1,8 @@
 # UploadgramPyAPI
 ![Alt](https://sun9-33.userapi.com/impg/uRrtaPGWd5M3u529Cr-PVUNORq-O4EwDjgwZyA/ak0CZq-ijFk.jpg?size=113x113&quality=96&sign=ce6642140fc672643d33e934d1235f7d&type=album "icon")
 
+> Developing this project has been stopped because [uploadgram.me](https://uploadgram.me) was closed
+
 This API can upload, download, remove and rename any files from the service [uploadgram.me](https://uploadgram.me) - a simple and fast file uploader that uses Telegram network as file storage.
 
 __If you download this module, you confirm your agreement with the [Terms of Service](https://uploadgram.me/terms.html) and [DMCA Policy](https://uploadgram.me/dmca.html) of [Uploadgram.me](https://uploadgram.me/)__
